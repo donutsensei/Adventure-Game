@@ -14,6 +14,13 @@ if __name__ == "__main__":
     inventoryI = ["T-card", "Lucky Pen", "Cheat Sheet"]
     inventoryF = []
     counter = 0
+    score = 0
+
+    print("You studied ridiculously hard last night and lost your tcard, lucky pen and cheat sheet. GO FIND THEM")
+    print ("Valid commands are : go north, go south, go east, go west, look, look around, pick up, drop, inventory, score, quit and where am i?")
+    print ("You have 50 minutes to find everything and go to the exam hall. every step you take is one minute gone lol")
+    print ("Each item successfully dropped at the exam hall is 20 points. The faster you get all three items to the hall, the more points you'll earn")
+    print ("Good Luck Bro")
 
     while not PLAYER.victory:
         location = WORLD.get_location(PLAYER.x, PLAYER.y)
@@ -22,28 +29,19 @@ if __name__ == "__main__":
         # depending on whether or not it's been visited before,
         #   print either full description (first time visit) or brief description (every subsequent visit)
 
-        print("What to do? \n")
-        '''
-        print("[menu]")
-        for action in Location.available_actions(Location):
-            print(action)
 
-        '''
+        print("What to do? \n")
+
 
         choice = input("\nEnter action: ")
-
-        if (choice == "[menu]"):
-            print("Menu Options: \n")
-            for option in menu:
-                print(option)
-            choice = input("\nChoose action: ")
 
 
 
         if (choice == "go west" and not WORLD.map[PLAYER.x][PLAYER.y -1] == '-1'):
             PLAYER.move_north()
             counter = counter + 1
-            print ("You have ", 50 - counter, " moves left.")
+            print(WORLD.get_location(PLAYER.x,PLAYER.y))
+            print ("You have ", 40 - counter, " moves left.")
         elif (choice == "go west" and WORLD.map[PLAYER.x][PLAYER.y -1] == '-1'):
             print("This way is blocked!")
 
@@ -51,45 +49,50 @@ if __name__ == "__main__":
         elif (choice == "go east" and WORLD.map[PLAYER.x][PLAYER.y + 1] != '-1'):
             PLAYER.move_south()
             counter = counter + 1
-            print ("You have ", 50 - counter, " moves left.")
+            print(WORLD.get_location(PLAYER.x,PLAYER.y))
+            print ("You have ", 40 - counter, " moves left.")
         elif (choice == "go east" and WORLD.map[PLAYER.x][PLAYER.y + 1] == '-1'):
             print("This way is blocked!")
 
         elif (choice == "go north" and WORLD.map[PLAYER.x - 1][PLAYER.y] != '-1'):
             PLAYER.move_west()
             counter = counter + 1
-            print ("You have ", 50 - counter, " moves left.")
+            print(WORLD.get_location(PLAYER.x,PLAYER.y))
+            print ("You have ", 40 - counter, " moves left.")
         elif (choice == "go north" and WORLD.map[PLAYER.x - 1][PLAYER.y] == '-1'):
             print ("This way is blocked!")
 
         elif (choice == "go south" and WORLD.map[PLAYER.x + 1][PLAYER.y] != '-1'):
             PLAYER.move_east()
             counter = counter + 1
-            print ("You have ", 50 - counter, " moves left.")
+            print(WORLD.get_location(PLAYER.x,PLAYER.y))
+            print ("You have ", 40 - counter, " moves left.")
         elif (choice == "go south" and WORLD.map[PLAYER.x + 1][PLAYER.y] == '-1'):
             print("This way is blocked")
 
 
         elif (choice == "look"):
-            Location.get_brief_description(Location)
-            counter = counter + 1
+            print(WORLD.get_location(PLAYER.x,PLAYER.y))
 
         elif (choice == "look around"):
-            Location.get_full_description(Location)
-            counter = counter + 1
+            print(WORLD.get_location(PLAYER.x,PLAYER.y))
 
-        elif (choice == "what can i do?"):
-            Location.available_actions(Location)
-
-        elif (choice == "view items"):
+        elif (choice == "inventory"):
             print(PLAYER.get_inventory())
 
         elif (choice == "where am i?"):
             print ("You are at location", WORLD.map[PLAYER.x ][PLAYER.y], " on the map.")
 
+        elif (choice == "score"):
+            print("Your score is currently", score)
 
-        if counter == 50:
-            print ("Sorry, you did not get all the objects in time. Game Over.")
+        elif (choice == "quit"):
+            print ("You have quit the game. You failed your exam")
+            break
+
+
+        if counter == 40:
+            print ("Sorry, you did not get all of your objects in time. Game Over.")
             break
 
         if WORLD.map[PLAYER.x][PLAYER.y] == '5' and choice == "pick up":
@@ -117,29 +120,18 @@ if __name__ == "__main__":
 
             if len(PLAYER.inventory) == 0:
                 print ("You have no items to drop")
+            else:
+                for item in PLAYER.inventory:
+                    inventoryF.append(item)
+                    score = score + 20
+                    PLAYER.remove_item(item)
+                print("You now have ", score, "points")
 
-            if len(PLAYER.inventory) == 1:
-                inventoryF.append(PLAYER.inventory[0])
-                PLAYER.remove_item(PLAYER, PLAYER.inventory[0])
 
-
-            if len(PLAYER.inventory) == 2:
-                inventoryF.append(PLAYER.inventory[1])
-                PLAYER.remove_item(PLAYER, PLAYER.inventory[1])
-                inventoryF.append(PLAYER.inventory[0])
-                PLAYER.remove_item(PLAYER, PLAYER.inventory[0])
-
-            if len(PLAYER.inventory) == 3:
-                inventoryF.append(PLAYER.inventory[2])
-                PLAYER.remove_item(PLAYER, PLAYER.inventory[2])
-                inventoryF.append(PLAYER.inventory[1])
-                PLAYER.remove_item(PLAYER, PLAYER.inventory[1])
-                inventoryF.append(PLAYER.inventory[0])
-                PLAYER.remove_item(PLAYER, PLAYER.inventory[0])
 
         if len(inventoryF) == 3:
             print("Congratulations, you collected all of your items before your exam!")
-            print("Best of Luck! :)")
+            print("You finished with", score + (40 - counter), "points!")
             break
 
 

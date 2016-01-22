@@ -1,24 +1,51 @@
-LOCATION -1
-0
-That way is blocked.
-That way is blocked.
-END
+1:You are in the forest. Keep going. You'll get out soon enough.
+2:You are in the forest. Keep going. You'll get out soon enough.
+3:You are in the forest. Keep going. You'll get out soon enough.
+4:You are in the forest. Keep going. You'll get out soon enough.
+5:You are in the CCT building. The TCard office found someone's lost tcard. PICK it UP and check it out. It's usually crowded at this time of the day, but today it's eerily quiet.
+6:You are in the forest. Keep going. You'll get out soon enough.
+7:You are in the forest. Keep going. You'll get out soon enough.
+8:You are in the forest. Keep going. You'll get out soon enough.
+9:You are in the forest. Keep going. You'll get out soon enough.
+10:You are in the Kaneff building. You see someone using your pen. You make eye contact in drops it and flees out of fear. Go PICK it UP.
+11:You are in the forest. Keep going. You'll get out soon enough.
+12:OH LOOK A UNICORN
+13:You are in the forest. Keep going. You'll get out soon enough.
+14:You are in the forest. Keep going. You'll get out soon enough.
+15:You are in the forest. Keep going. You'll get out soon enough.
+16:You are in the forest. Keep going. You'll get out soon enough.
+17:You are in the forest. Keep going. You'll get out soon enough.
+18:You are in the forest. Keep going. You'll get out soon enough.
+19:You are in the forest. Keep going. You'll get out soon enough.
+20:You are in the exam hall. DROP all your items here.
+21:You are in the forest. Keep going. You'll get out soon enough.
+22:You are in the forest. Keep going. You'll get out soon enough.
+23:You are in the forest. Keep going. You'll get out soon enough.
+24:You are in the forest. Keep going. You'll get out soon enough.
+25:You are in the forest. Keep going. You'll get out soon enough.
+26:You are in the depths of the forest. Why is there a lion here... run bruh!
+27:Welcome to King Davids Palace. A mere mortal such as yourself is not worthy of his presence. BE GONE!
+28:You are in the forest. Keep going. You'll get out soon enough.
+29:You are in the forest. Keep going. You'll get out soon enough.
+30:You are in the forest. Keep going. You'll get out soon enough.
+31:There is nothing here for you. Continue your search else where
+32:You are in the forest. Keep going. You'll get out soon enough.
+33:You are in the forest. Keep going. You'll get out soon enough.
+34:You are in the forest. Keep going. You'll get out soon enough.
+35:You are in the forest. Keep going. You'll get out soon enough.
+36:You are in the forest. Keep going. You'll get out soon enough.
+37:You are in the forest. Keep going. You'll get out soon enough.
+38:You are in an empty study room. And by empty, we mean, absolutely empty, except for a piece of paper. Maybe you should PICK it UP.
+39:The deer are laughing at your situation. Hurry up!
+40:You are in the forest. Keep going. You'll get out soon enough.
+41:You are in the forest. Keep going. You'll get out soon enough.
+42:You are in the forest. Keep going. You'll get out soon enough.
+43:You are in the forest. Keep going. You'll get out soon enough.
+44:You are in the forest. Keep going. You'll get out soon enough.
+45:You are in the forest. Keep going. You'll get out soon enough.
+46:You are in the forest. Keep going. You'll get out soon enough.
+47:You are in the forest. Keep going. You'll get out soon enough.
+48:You are in the forest. Keep going. You'll get out soon enough.
+49:You are in the forest. Keep going. You'll get out soon enough.
+50:You are in the forest. Keep going. You'll get out soon enough.
 
-LOCATION 1
-0
-You are on the first floor of the UTM Library. There is an empty study room to the South, an exit from the library to the North.
-You are on the first floor of the UTM Library. It's usually crowded at this time of the day, but today it's eerily quiet.
-Only a few students are studying inside one of the study rooms. You better not disturb them. A librarian stands near the service desk, looking bored and sleepy. There is an empty study room to the South, an exit from the library to the North.
-END
-
-LOCATION 2
-0
-This study room is completely empty.
-You are in an empty study room. And by empty, we mean, absolutely empty. All the tables and chairs have been taken out,
-the whiteboards taken off the wall, not even the carpeting is left. Are they planning to do something else with this space?
-END
-
-LOCATION 3
-0
-You are outside of the library. There is a Starbucks to the North.
-You are outside of the library in a crowded hallway. There is a smell of coffee in the air. There is a Starbucks to the North.

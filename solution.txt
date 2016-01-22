@@ -1,0 +1,33 @@
+go east
+go east
+go east
+go east
+pick up
+inventory
+go east
+go east
+go east
+go east
+go east
+pick up
+inventory
+go west
+go west
+go west
+go west
+go west
+go west
+go south
+go south
+go south
+go south
+pick up
+inventory
+go north
+go north
+go east
+drop
+inventory
+score
+drop
+

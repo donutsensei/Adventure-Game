@@ -1,6 +1,6 @@
 class Location:
 
-    def __init__(self,library,study_room,outside,visit):
+    def __init__(self,cct, studyroom, kaneff, lion, forest):
         '''Creates a new location.          
         ADD NEW ATTRIBUTES TO THIS CLASS HERE TO STORE DATA FOR EACH LOCATION.
         
@@ -19,41 +19,24 @@ class Location:
         The only thing you must NOT change is the name of this class: Location.
         All locations in your game MUST be represented as an instance of this class.
         '''
-        self.library = library
-        self.study_room = study_room
-        self.outside = outside
-        self.visit=visit
+        self.cct = cct
+        self.studyroom = studyroom
+        self.forest = forest
+        self.kaneff = kaneff
+        self.lion = lion
 
     def get_brief_description (self):
         '''Return str brief description of location.'''
 
-        if self.library == "LOCATION 1":
-           return ("You are on the first floor of the UTM Library.")
-        elif self.study_room == "LOCATION 2":
-           return ("You are in the study room, which is completely empty.")
-        elif self.outside == "LOCATION 3":
-           return ("You are outside of the library. ")
-        else:
-           return ("That way is blocked.")
+        return get_brief_description
+
+
+
     def get_full_description (self):
         '''Return str long description of location.'''
-        if self.visit == 0:
-           if self.library == "LOCATION 1":
-               return ("You are on the first floor of the UTM Library. There is an empty study room to the South, an exit from the library to the North.You are on the first floor of the UTM Library. It's usually crowded at this time of the day, but today it's eerily quiet.Only a few students are studying inside one of the study rooms. You better not disturb them. A librarian stands near the service desk, looking bored and sleepy. There is an empty study room to the South, an exit from the library to the North.")
-           elif self.study_room == "LOCATION 2":
-               return ("This study room is completely empty.You are in an empty study room. And by empty, we mean, absolutely empty. All the tables and chairs have been taken out,the whiteboards taken off the wall, not even the carpeting is left. Are they planning to do something else with this space?")
-           elif self.outside == "LOCATION 3":
-               return ("You are outside of the library. There is a Starbucks to the North. You are outside of the library in a crowded hallway. There is a smell of coffee in the air. There is a Starbucks to the North.")
-           else:
-               return ("That way is blocked.")
 
-    def available_actions(self):
-        '''
-        -- Suggested Method (You may remove/modify/rename this as you like) --
-        Return list of the available actions in this location.
-        The list of actions should depend on the items available in the location
-        and the x,y position of this location on the world map.'''
-        pass
+        return None
+
 
 class Item:
 
@@ -134,12 +117,11 @@ class World:
 
     def load_map(self, filename):
         '''
-        THIS FUNCTION MUST NOT BE RENAMED OR REMOVED.
-        Store map from filename (map.txt) in the variable "self.map" as a nested list of strings OR integers like so:
+        Stores map from filename (map.txt) in the variable "self.map" as a nested list of strings OR integers like so:
             1 2 5
             3 -1 4
         becomes [['1','2','5'], ['3','-1','4']] OR [[1,2,5], [3,-1,4]]
-        RETURN THIS NEW NESTED LIST.
+        
         :param filename: map.txt
         :return: return nested list of strings/integers representing map of game world as specified above
         '''
@@ -152,28 +134,27 @@ class World:
             splitLine2 = splitLine[0].split(" ")
             self.map.append(splitLine2)
 
-        return (map)
+        return (self.map)
 
 
     def load_locations(self, filename):
         '''
-        Store all locations from filename (locations.txt) into the variable "self.locations"
-        however you think is best.
-        Remember to keep track of the integer number representing each location.
-        Make sure the Location class is used to represent each location.
-        Change this docstring as needed.
+        Stores locations into a list/index.
+
         :param filename: location.txt
         :return: self.locations
         '''
-        filename = open ("location.txt","r")
 
-        while True:
-            line = filename.readline()
-            if len (line)==0:
-                break
-            self.location =line
-            print (self.location,end="")
-        filename.close()
+        locationFile = open("location.txt", "r+")
+
+        self.location = []
+        for line in locationFile:
+
+            splitLine = line.split("\n")
+            splitLine2 = splitLine[0].split(":")
+            self.location.append(splitLine2)
+
+        return (self.location)
 
 
     def load_items(self, filename):
@@ -190,15 +171,25 @@ class World:
             if len (line)==0:
                 break
             self.items=line
-            print (self.items,end="")
         filename.close()
 
     def get_location(self, x, y):
-        '''Check if location exists at location (x,y) in world map.
-        Return Location object associated with this location if it does. Else, return None.
-        Remember, locations represented by the number -1 on the map should return None.
+        '''corresponds map postion via arrays to location array, and prints description
+
         :param x: integer x representing x-coordinate of world map
         :param y: integer y representing y-coordinate of world map
         :return: Return Location object associated with this location if it does. Else, return None.
         '''
+
+        if self.map[x][y] == '-1':
+            return None
+
+        else:
+            position = self.map[x][y]
+            for place in self.location:
+                if place[0] == position:
+                    return place[1]
+
+
+
 

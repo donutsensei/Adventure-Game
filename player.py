@@ -7,10 +7,6 @@ class Player:
         :param y: y-coordinate of position on map
         :return:
 
-        This is a suggested starter class for Player.
-        You may add new parameters / attributes / methods to this class as you see fit.
-        Consider every method in this Player class as a "suggested method":
-                -- Suggested Method (You may remove/modify/rename these as you like) --
         '''
         self.x = x
         self.y = y
